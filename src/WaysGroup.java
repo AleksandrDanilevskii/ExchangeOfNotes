@@ -4,7 +4,7 @@ import java.util.*;
 
 public class WaysGroup {
 
-    private final ArrayList<Way> ways;
+    private final List<Way> ways;
 
     public WaysGroup() {
         ways = new ArrayList<>();

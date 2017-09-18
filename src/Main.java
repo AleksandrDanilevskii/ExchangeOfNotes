@@ -1,5 +1,5 @@
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -9,7 +9,7 @@ public class Main {
 
         int a = Exchange.inputa();
 
-        ArrayList<Integer> b = Exchange.inputb();
+        List<Integer> b = Exchange.inputb();
         b = Exchange.sortList(b);
 
         if (b.get(0) <= a) {

@@ -1,12 +1,14 @@
 import com.sun.istack.internal.NotNull;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeSet;
 
 public class Exchange {
 
-    public WaysGroup getAllExchanges(int sumForExchange, ArrayList<Integer> denominationСoins) {
-        ArrayList<Integer> coins = denominationСoins;
+    public WaysGroup getAllExchanges(int sumForExchange, List<Integer> denominationСoins) {
+        List<Integer> coins = denominationСoins;
         WaysGroup[][] waysGroups = new WaysGroup[coins.size()][sumForExchange + 1]; //новый объект класса WaysGroup[число номиналов][сумма для размена+1]
         waysGroups[0][0] = new WaysGroup();
         waysGroups[0][0].add(new Way());
@@ -14,7 +16,7 @@ public class Exchange {
             for (int j = 0; j < coins.size(); j++) {
                 for (int k = j; k < coins.size(); k++) { //номер монет для докидывания
                     if (i + coins.get(k) <= sumForExchange) { //если можно докинуть монету к i
-                        if (waysGroups[k][i + coins.get(k)] == null){
+                        if (waysGroups[k][i + coins.get(k)] == null) {
                             waysGroups[k][i + coins.get(k)] = new WaysGroup();
                         }
                         waysGroups[k][i + coins.get(k)].add(waysGroups[j][i]);
@@ -52,7 +54,7 @@ public class Exchange {
         return a;
     }
 
-    public static ArrayList<Integer> inputb() throws IOException {
+    public static List<Integer> inputb() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<Integer> b = new ArrayList();
         System.out.print("Введите доступные номиналы купюр: ");
@@ -76,7 +78,7 @@ public class Exchange {
     }
 
     @NotNull
-    public static ArrayList<Integer> sortList(ArrayList<Integer> b) {
+    public static List<Integer> sortList(List<Integer> b) {
         TreeSet<Integer> set = new TreeSet<>();
         set.addAll(b);
         return new ArrayList<>(set);
