@@ -31,8 +31,11 @@ public class WaysGroup {
 
     public void print() {
         System.out.println("Возможные варианты размена: ");
+        int i = 1;
         for (Way way : ways) {
+            System.out.print(i+") ");
             way.print();
+            i++;
         }
     }
 
